@@ -7,10 +7,14 @@ using UnityEngine.SceneManagement;
 public class CharacterMovement : MonoBehaviour
 {
     public GameObject character;
+    private SpriteRenderer m_SpriteRenderer;
+    private bool faceLeft;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Fetch the SpriteRenderer from the GameObject
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        faceLeft = true;
     }
 
     // Update is called once per frame
@@ -18,11 +22,19 @@ public class CharacterMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) {
             if ((double) character.transform.position.x > -5) {
+                if (faceLeft == false) {
+                    m_SpriteRenderer.flipX = !m_SpriteRenderer.flipX;
+                    faceLeft = true;
+                }
                 character.transform.Translate(-1,0,0);
             }
         }
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) {
             if ((double) character.transform.position.x < 5) {
+                if (faceLeft == true) {
+                    m_SpriteRenderer.flipX = !m_SpriteRenderer.flipX;
+                    faceLeft = false;
+                }
                 character.transform.Translate(1,0,0);
             }
         }
