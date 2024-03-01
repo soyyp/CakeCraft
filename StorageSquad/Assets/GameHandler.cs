@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
-    private string lastLevel = "Level1";
+    private string lastLevel = "Level2";
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,7 @@ public class GameHandler : MonoBehaviour
     }
 
     public void StartGame() {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Level2");
     }
 
     public void PauseGame() {
