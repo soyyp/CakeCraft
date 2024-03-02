@@ -16,7 +16,7 @@ public class GameHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && (SceneManager.GetActiveScene().name != "StartMenu" 
+        if (Input.GetKeyDown(KeyCode.Escape) && (SceneManager.GetActiveScene().name != "MainMenu" 
                                                  && SceneManager.GetActiveScene().name != "PauseMenu")) 
         {
             PauseGame();
@@ -36,6 +36,6 @@ public class GameHandler : MonoBehaviour
     }
 
     public void QuitGame() {
-        SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 }
