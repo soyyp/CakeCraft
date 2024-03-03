@@ -8,6 +8,8 @@ TagManager:
   - Wall
   - BottomWall
   - Obstacle
+  - RightWall
+  - LeftWall
   layers:
   - Default
   - TransparentFX

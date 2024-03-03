@@ -7,15 +7,13 @@ using UnityEngine.SceneManagement;
 public class GameHandler : MonoBehaviour
 {
     public Text scoreText;
-    private int currLevel;
-    private int boxesLeft;
-    private int time;
+    private int currLevel = 1;
+    private int boxesLeft = 3;
+    private int time = 40;
     // Start is called before the first frame update
     void Start()
     {
-        currLevel = 1;
-        boxesLeft = 3;
-        time = 20;
+        UpdateScore(0);
     }
 
     // Update is called once per frame
@@ -29,14 +27,12 @@ public class GameHandler : MonoBehaviour
             PauseGame();
         }
 
-        if (boxesLeft == 0 && time > 0) {
+        if (boxesLeft == 0) {
             if (currLevel != 5) {
                 NextLevel();
             } else {
                 YouWin();
             }
-        } else if (boxesLeft > 0 && time <= 0) {
-            YouLose();
         }
     }
 
@@ -46,7 +42,13 @@ public class GameHandler : MonoBehaviour
     }
 
     void UpdateScoreText() {
-        
+        if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "GameOver") {
+            scoreText.text = "Boxes Left: " + boxesLeft;
+        }
+    }
+
+    public int getTime() {
+        return time;
     }
 
     public void StartGame() {
@@ -58,8 +60,8 @@ public class GameHandler : MonoBehaviour
         SceneManager.LoadScene("PauseMenu");
     }
 
-    void YouLose() {
-        SceneManager.LoadScene("YouLose");
+    void GameOver() {
+        SceneManager.LoadScene("GameOver");
     }
 
     void NextLevel() {

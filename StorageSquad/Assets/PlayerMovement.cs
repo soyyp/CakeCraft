@@ -5,6 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f; // The speed at which the player moves
+    public Sprite WithoutBox;
+    public Sprite WithBox;
+    public GameHandler gameHandler;
 
     private Rigidbody2D rb; // Reference to the Rigidbody2D component
     private Vector2 movement; // The vector to store the direction of the player's movement
@@ -13,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private bool immune;
     private bool isHit;
     private Vector2 defaultPosition;
+    private bool hasBox;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
         faceLeft = true;
         immune = false;
         defaultPosition = rb.position;
+        hasBox = false;
+        m_SpriteRenderer.sprite = WithoutBox;
     }
 
     // Update is called once per frame
@@ -60,6 +66,21 @@ public class PlayerMovement : MonoBehaviour
         if (col.gameObject.tag == "Obstacle" && immune == false) {
             isHit = true;
             // Be sure to remove the box that the player picked up
+        }
+        
+        if (col.gameObject.tag == "RightWall") {
+            if (hasBox == false) {
+                m_SpriteRenderer.sprite = WithBox;
+                hasBox = true;
+            }
+        }
+
+        if (col.gameObject.tag == "LeftWall") {
+            if (hasBox == true) {
+                m_SpriteRenderer.sprite = WithoutBox;
+                hasBox = false;
+                gameHandler.UpdateScore(1);
+            }
         }
     }
 }
