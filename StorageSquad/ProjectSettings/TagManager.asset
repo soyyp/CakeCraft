@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - GameHandler
+  - Wall
+  - BottomWall
+  - Obstacle
   layers:
   - Default
   - TransparentFX

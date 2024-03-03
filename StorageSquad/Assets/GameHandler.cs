@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
-    private string lastLevel = "Level1";
+    private string lastLevel = "Level2";
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class GameHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && (SceneManager.GetActiveScene().name != "StartMenu" 
+        if (Input.GetKeyDown(KeyCode.Escape) && (SceneManager.GetActiveScene().name != "MainMenu" 
                                                  && SceneManager.GetActiveScene().name != "PauseMenu")) 
         {
             PauseGame();
@@ -24,7 +24,7 @@ public class GameHandler : MonoBehaviour
     }
 
     public void StartGame() {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Level2");
     }
 
     public void PauseGame() {
@@ -36,6 +36,6 @@ public class GameHandler : MonoBehaviour
     }
 
     public void QuitGame() {
-        SceneManager.LoadScene("StartMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 }
