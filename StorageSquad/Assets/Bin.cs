@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Bin : MonoBehaviour
 {
     public float moveSpeed = 5f; // The speed at which the player moves
+    public Collision obstacle;
 
     private Rigidbody2D rb; // Reference to the Rigidbody2D component
     private Vector2 movement; // The vector to store the direction of the player's movement
     private SpriteRenderer m_SpriteRenderer;
     private bool faceLeft;
     private bool immune;
-    private bool isHit;
     private Vector2 defaultPosition;
 
     // Start is called before the first frame update
@@ -44,21 +44,14 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // Movement
-        if (isHit == false) {
-            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime); // Move the player
-        } else {
-            rb.MovePosition(defaultPosition);
-            isHit = false;
-            if (faceLeft == false) {
-                m_SpriteRenderer.flipX = !m_SpriteRenderer.flipX;
-                faceLeft = true;
-            }
-        }
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime); // Move the player
     }
 
-    void OnTriggerEnter2D(Collider2D col) {
+    void OnCollisionEnter2D(Collision2D col) {
+        print("Oww\n");
+        print(col.gameObject.tag);
         if (col.gameObject.tag == "Obstacle" && immune == false) {
-            isHit = true;
+            rb.MovePosition(defaultPosition);
             // Be sure to remove the box that the player picked up
         }
     }
