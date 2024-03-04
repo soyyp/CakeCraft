@@ -159,6 +159,7 @@ MonoBehaviour:
   WithoutBox: {fileID: 21300000, guid: 49de042cede2b43188fbd5e2a6f4b56f, type: 3}
   WithBox: {fileID: 21300000, guid: d3cbc4e7ef61a40db86f7868ad0e1275, type: 3}
   gameHandler: {fileID: 1920400516}
+  obstacleSpawner: {fileID: 0}
 --- !u!58 &142551165
 CircleCollider2D:
   m_ObjectHideFlags: 0

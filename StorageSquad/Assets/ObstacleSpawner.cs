@@ -48,6 +48,14 @@ public class ObstacleSpawner : MonoBehaviour {
             }
       }
 
+      public void hitPenalty() {
+            if (gameTimer >= 1f){
+                  gameTime -= 5;
+                  gameTimer = 0;
+                  UpdateTime();
+            }
+      }
+
       public void UpdateTime(){
             timeText.text = "Time: " + gameTime;
       }

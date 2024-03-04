@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public Sprite WithoutBox;
     public Sprite WithBox;
     public GameHandler gameHandler;
+    public ObstacleSpawner obstacleSpawner;
 
     private Rigidbody2D rb; // Reference to the Rigidbody2D component
     private Vector2 movement; // The vector to store the direction of the player's movement
@@ -65,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Obstacle" && immune == false) {
             isHit = true;
-            // Be sure to remove the box that the player picked up
+            
         }
         
         if (col.gameObject.tag == "RightWall") {
