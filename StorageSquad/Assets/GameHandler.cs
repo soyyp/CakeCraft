@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameHandler : MonoBehaviour
 {
     public Text scoreText;
-    private int currLevel = 1;
+    private int currLevel = 3;
     private int boxesLeft = 5;
     private int time = 40;
     // Start is called before the first frame update

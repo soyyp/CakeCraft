@@ -27,8 +27,8 @@ public class ObstacleSpawner : MonoBehaviour {
 
       void Start() {
             gameTime = gameHandler.getTime();
-            SPRangeEnd = spawnPoints.Length - 1;
-            PrefabRangeEnd = obstaclePrefabs.Length - 1;
+            SPRangeEnd = spawnPoints.Length;
+            PrefabRangeEnd = obstaclePrefabs.Length;
             UpdateTime();
       }
 
