@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 public class ObstacleSpawner : MonoBehaviour {
 
       //Object variables
-      public GameObject obstaclePrefab;
+      public Transform[] obstaclePrefabs;
       public Transform[] spawnPoints;
-      private int rangeEnd;
+      private int SPRangeEnd;
+      private int PrefabRangeEnd;
       private Transform spawnPoint;
+      private Transform obstacle;
       public Text timeText;
       public GameHandler gameHandler;
 
@@ -25,18 +27,20 @@ public class ObstacleSpawner : MonoBehaviour {
 
       void Start() {
             gameTime = gameHandler.getTime();
-            rangeEnd = spawnPoints.Length - 1;
+            SPRangeEnd = spawnPoints.Length - 1;
+            PrefabRangeEnd = obstaclePrefabs.Length - 1;
             UpdateTime();
       }
 
       void FixedUpdate(){
             timeToSpawn = Random.Range(spawnRangeStart, spawnRangeEnd);
+
             spawnTimer += 0.01f;
             if (spawnTimer >= timeToSpawn){
                   spawnObstacle();
                   spawnTimer =0f;
             }
-            gameTimer += 0.016f;
+            gameTimer += 0.02f;
             if (gameTimer >= 1f){
                         gameTime -= 1;
                         gameTimer = 0;
@@ -48,23 +52,17 @@ public class ObstacleSpawner : MonoBehaviour {
             }
       }
 
-      public void hitPenalty() {
-            if (gameTimer >= 1f){
-                  gameTime -= 5;
-                  gameTimer = 0;
-                  UpdateTime();
-            }
-      }
-
       public void UpdateTime(){
             timeText.text = "Time: " + gameTime;
       }
 
       void spawnObstacle(){
-            int SPnum = Random.Range(0, rangeEnd);
+            int SPnum = Random.Range(0, SPRangeEnd);
+            int prefabNum = Random.Range(0, PrefabRangeEnd);
             spawnPoint = spawnPoints[SPnum];
+            obstacle = obstaclePrefabs[prefabNum];
             if (gameTime > 0){
-                  Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.identity);
+                  Instantiate(obstacle, spawnPoint.position, Quaternion.identity);
             }
       }
 }

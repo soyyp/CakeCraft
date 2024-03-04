@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public Sprite WithoutBox;
     public Sprite WithBox;
     public GameHandler gameHandler;
-    public ObstacleSpawner obstacleSpawner;
+    public GameObject getBox;
+    public GameObject depositBox;
 
     private Rigidbody2D rb; // Reference to the Rigidbody2D component
     private Vector2 movement; // The vector to store the direction of the player's movement
@@ -66,17 +68,16 @@ public class PlayerMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Obstacle" && immune == false) {
             isHit = true;
-            
         }
         
-        if (col.gameObject.tag == "RightWall") {
+        if (col.gameObject.tag == "RightWall" && (Math.Abs(rb.position.y - getBox.transform.position.y) <= 2)) {
             if (hasBox == false) {
                 m_SpriteRenderer.sprite = WithBox;
                 hasBox = true;
             }
         }
 
-        if (col.gameObject.tag == "LeftWall") {
+        if (col.gameObject.tag == "LeftWall" && (Math.Abs(rb.position.y - depositBox.transform.position.y) <= 2)) {
             if (hasBox == true) {
                 m_SpriteRenderer.sprite = WithoutBox;
                 hasBox = false;
