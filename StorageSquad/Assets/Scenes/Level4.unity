@@ -1169,7 +1169,6 @@ MonoBehaviour:
   - {fileID: 905327382}
   - {fileID: 699041802}
   - {fileID: 2141375410}
-  timeText: {fileID: 1700761931}
   gameHandler: {fileID: 1858027638}
   spawnRangeStart: 0.5
   spawnRangeEnd: 1.2
@@ -1288,6 +1287,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 3354071245479563239, guid: 68493f83b8c57fd44910b07b94b35a20, type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 1700761931}
     - target: {fileID: 3354071245479563239, guid: 68493f83b8c57fd44910b07b94b35a20, type: 3}
       propertyPath: scoreText
       value: 

@@ -1092,6 +1092,10 @@ PrefabInstance:
       value: GameHandler
       objectReference: {fileID: 0}
     - target: {fileID: 3354071245479563239, guid: 68493f83b8c57fd44910b07b94b35a20, type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 1337586733}
+    - target: {fileID: 3354071245479563239, guid: 68493f83b8c57fd44910b07b94b35a20, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 669042643}
@@ -1198,7 +1202,6 @@ MonoBehaviour:
   - {fileID: 1777896523}
   - {fileID: 205992919}
   - {fileID: 1649806085}
-  timeText: {fileID: 1337586733}
   gameHandler: {fileID: 158980981}
   spawnRangeStart: 0.5
   spawnRangeEnd: 1.2

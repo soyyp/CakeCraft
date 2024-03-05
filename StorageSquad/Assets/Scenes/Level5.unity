@@ -215,7 +215,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c02e3b94ef004413a901c3ca0dbc3d19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d0cbf3208edaa34799cab9ece738487, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -234,8 +234,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454646755}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.7, y: 0, z: 0}
-  m_LocalScale: {x: 0.548, y: 0.548, z: 0.548}
+  m_LocalPosition: {x: 6.56, y: 0, z: 0}
+  m_LocalScale: {x: 0.22, y: 0.22, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -273,9 +273,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.18, y: -0.17}
+  m_Offset: {x: 0.08, y: 0.02}
   serializedVersion: 2
-  m_Radius: 1.15
+  m_Radius: 3.1
 --- !u!114 &454646759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  WithoutBox: {fileID: 21300000, guid: c02e3b94ef004413a901c3ca0dbc3d19, type: 3}
+  WithoutBox: {fileID: 21300000, guid: 7d0cbf3208edaa34799cab9ece738487, type: 3}
   WithBox: {fileID: 21300000, guid: 533de8e8c98d24ac0b8c6e597b0ffe22, type: 3}
   gameHandler: {fileID: 1406780657}
   getBox: {fileID: 1750388408}
@@ -482,6 +482,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 3354071245479563239, guid: 68493f83b8c57fd44910b07b94b35a20, type: 3}
+      propertyPath: timeText
+      value: 
+      objectReference: {fileID: 2126017456}
     - target: {fileID: 3354071245479563239, guid: 68493f83b8c57fd44910b07b94b35a20, type: 3}
       propertyPath: scoreText
       value: 
@@ -1276,7 +1280,6 @@ MonoBehaviour:
   - {fileID: 1688013729}
   - {fileID: 1763224879}
   - {fileID: 1681773207}
-  timeText: {fileID: 2126017456}
   gameHandler: {fileID: 1406780657}
   spawnRangeStart: 0.5
   spawnRangeEnd: 1.2
