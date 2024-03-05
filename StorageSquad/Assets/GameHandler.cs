@@ -24,14 +24,6 @@ public class GameHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && (SceneManager.GetActiveScene().name != "MainMenu" 
-                                                 && SceneManager.GetActiveScene().name != "PauseMenu"
-                                                 && SceneManager.GetActiveScene().name != "Tutorial"
-                                                 && SceneManager.GetActiveScene().name != "Credits")) 
-        {
-            PauseGame();
-        }
-
         if (boxesLeft == 0) {
             if (currLevel != 5) {
                 NextLevel();
@@ -128,10 +120,6 @@ public class GameHandler : MonoBehaviour
         SceneManager.LoadScene("Credits");
     }
 
-    void PauseGame() {
-        SceneManager.LoadScene("PauseMenu");
-    }
-
     void GameOver() {
         SceneManager.LoadScene("GameOver");
     }
@@ -153,11 +141,24 @@ public class GameHandler : MonoBehaviour
         SceneManager.LoadScene("YouWin");
     }
 
-    public void ResumeGame() {
-        SceneManager.LoadScene("Level" + currLevel);
-    }
-
     public void QuitGame() {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void RestartGame() {
+            Time.timeScale = 1f;
+            GameHandler_PauseMenu.GameisPaused = false;
+            QuitGame();
+      }
+
+      // Replay the Level where you died
+      public void ReplayLastLevel() {
+            Time.timeScale = 1f;
+            GameHandler_PauseMenu.GameisPaused = false;
+            currLevel = getLevel();
+            SceneManager.LoadScene("Level" + currLevel);
+            // Reset all static variables here, for new games:
+            time = 20 + (20 * (currLevel - 1));
+            boxesLeft = 3 + (2 * (currLevel - 1));
+      }
 }
