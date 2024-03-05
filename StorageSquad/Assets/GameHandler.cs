@@ -68,7 +68,9 @@ public class GameHandler : MonoBehaviour
     public void UpdateTime() {
         if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "GameOver"
                                                              && SceneManager.GetActiveScene().name != "Credits"
-                                                             && SceneManager.GetActiveScene().name != "Tutorial")
+                                                             && SceneManager.GetActiveScene().name != "Tutorial"
+                                                             && SceneManager.GetActiveScene().name != "PauseMenu"
+                                                             && SceneManager.GetActiveScene().name != "YouWin")
         {
             timeText.text = "Time: " + time;
         }
@@ -77,7 +79,9 @@ public class GameHandler : MonoBehaviour
     void UpdateScoreText() {
         if (SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "GameOver"
                                                              && SceneManager.GetActiveScene().name != "Credits"
-                                                             && SceneManager.GetActiveScene().name != "Tutorial")
+                                                             && SceneManager.GetActiveScene().name != "Tutorial"
+                                                             && SceneManager.GetActiveScene().name != "PauseMenu"
+                                                             && SceneManager.GetActiveScene().name != "YouWin")
         {
             scoreText.text = "Boxes Left: " + boxesLeft;
         }
