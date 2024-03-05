@@ -94,11 +94,11 @@ public class GameHandler : MonoBehaviour
             return 3;
         } else if (SceneManager.GetActiveScene().name == "Level4") {
             boxesLeft = 9;
-            time = 80;
+            time = 75;
             return 4;
         } else if (SceneManager.GetActiveScene().name == "Level5") {
             boxesLeft = 11;
-            time = 100;
+            time = 90;
             return 5;
         } else {
             boxesLeft = 3;
@@ -148,7 +148,7 @@ public class GameHandler : MonoBehaviour
     public void RestartGame() {
             Time.timeScale = 1f;
             GameHandler_PauseMenu.GameisPaused = false;
-            QuitGame();
+            SceneManager.LoadScene("Level1");
       }
 
       // Replay the Level where you died
